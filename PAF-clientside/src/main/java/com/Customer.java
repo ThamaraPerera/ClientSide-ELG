@@ -39,10 +39,10 @@ public class Customer{
 
 			// Prepare the html table to be displayed
 			output = "<table border='1'><tr><th>Customer Name</th>"
-					+ "<th>Research Description</th><th>Research Price</th>" + "<th>Research Date</th>"
+					+ "<th>Customer Address</th><th>Customer Phone number</th>" + "<th>Username</th>" + "<th>Password</th>"
 					+ "<th>Update</th><th>Remove</th></tr>";
 
-			String query = "select * from research";
+			String query = "select * from logtbl";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 
