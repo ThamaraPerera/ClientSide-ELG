@@ -56,33 +56,36 @@ public class CustomerAPI extends HttpServlet {
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
 	
-	private Map<String, String> getParasMap(HttpServletRequest request) {
-		Map<String, String> map = new HashMap<String, String>();
-		try {
-			Scanner scanner = new Scanner(request.getInputStream(), "UTF-8");
-			String queryString = scanner.hasNext() ? scanner.useDelimiter("\\A").next() : "";
-			scanner.close();
-
-			String[] params = queryString.split("&");
-			for (String param : params) {
-				String[] p = param.split("=");
-				map.put(p[0], p[1]);
-			}
-
-		} catch (Exception e) {
-
-		}
-		return map;
+	private static Map getParasMap(HttpServletRequest request)
+	{
+	 Map<String, String> map = new HashMap<String, String>();
+	try
+	 {
+	 Scanner scanner = new Scanner(request.getInputStream(), "UTF-8");
+	 String queryString = scanner.hasNext() ?
+	 scanner.useDelimiter("\\A").next() : "";
+	 scanner.close();
+	 String[] params = queryString.split("&");
+	 for (String param : params)
+	 { 
+		 String[] p = param.split("=");
+		 map.put(p[0], p[1]);
+		 }
+		 }
+		catch (Exception e)
+		 {
+		 }
+	return map;
 	}
-	
+
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Map<String, String> param = getParasMap(request);
+		Map paras = getParasMap(request);
 		// Calling Update Method
-		String result = cObj.updateCustomer(param.get("hidcustomerIDSave").toString(),
-				param.get("customerName").toString().toString().replace("+", " "),
-				param.get("customerAddress").toString(), param.get("customerPhone").toString(), param.get("customerUname").toString(),
-				param.get("customerPwd").toString().toString().replace("+", " "));
+		String result = cObj.updateCustomer(paras.get("hidcustomerIDSave").toString(),
+				paras.get("customerName").toString(), paras.get("customerAddress").toString(), 
+				paras.get("customerPhone").toString(), paras.get("customerUname").toString(),
+				paras.get("customerPwd").toString());
 
 		response.getWriter().write(result);
 	}
