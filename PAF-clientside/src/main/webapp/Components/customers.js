@@ -76,12 +76,12 @@ function onCustomerSaveComplete(response, status){
 //UPDATE Function========================================== 
 $(document).on("click", ".btnUpdate", function(event) 
 		{     
-	$("#hidcustomerIDSave").val($(this).closest("tr").find('#hidresearchIDUpdate').val());     
-	$("#customerName").val($(this).closest("tr").find('td:eq(0)').text());    
-	$("#customerAddress").val($(this).closest("tr").find('td:eq(1)').text());     
-	$("#customerPhone").val($(this).closest("tr").find('td:eq(2)').text());     
-	$("#customerUname").val($(this).closest("tr").find('td:eq(3)').text());
-	$("#customerPwd").val($(this).closest("tr").find('td:eq(4)').text());  
+	$("#hidcustomerIDSave").val($(this).closest("tr").find('#hidcustomerIDUpdate').val());     
+	$("#username").val($(this).closest("tr").find('td:eq(0)').text());    
+	$("#useraddress").val($(this).closest("tr").find('td:eq(1)').text());     
+	$("#userphonenumber").val($(this).closest("tr").find('td:eq(2)').text());     
+	$("#userusername").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#userpassword").val($(this).closest("tr").find('td:eq(4)').text());  
 	
 
 });
@@ -92,7 +92,7 @@ $(document).on("click", ".btnRemove", function(event){
 	{
 		url : "CustomerAPI",
 		type : "DELETE",
-		data : "customerID=" + $(this).data("customerid"),
+		data : "userid=" + $(this).data("userid"),
 		dataType : "text",
 		complete : function(response, status)
 		{
@@ -130,36 +130,36 @@ function onCustomerDeletedComplete(response, status)
 //CLIENTMODEL
 function validateCustomerForm() {  
 	// Name 
-	if ($("#customerName").val().trim() == "")  {   
+	if ($("#username").val().trim() == "")  {   
 		return "Please insert your Name.";  
 		
 	} 
 	
 	 // Address 
-	if ($("#customerAddress").val().trim() == "")  {   
+	if ($("#useraddress").val().trim() == "")  {   
 		return "Please insert your Address.";  
 		
 	} 
 	 
 	
 	// Phonenumber 
-	if ($("#customerPhone").val().trim() == "")  {   
+	if ($("#userphonenumber").val().trim() == "")  {   
 		return "Please insert your Phone number.";  
 		
 	}  
-	var phone = $("#customerPhone").val().trim(); 
+	var phone = $("#userphonenumber").val().trim(); 
 	if (!$.isNumeric(phone)) { 
  		return "Insert a valid phone number"; 
  	}
 	
 	// Date  
-	if ($("#customerUname").val().trim() == "")  {   
+	if ($("#userusername").val().trim() == "")  {   
 		return "Please insert a Username.";  
 		
 	} 
 	
 	// Date  
-	if ($("#customerPwd").val().trim() == "")  {   
+	if ($("#userpassword").val().trim() == "")  {   
 		return "Please insert a Password";  
 		
 	}

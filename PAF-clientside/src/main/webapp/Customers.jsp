@@ -21,23 +21,23 @@
 				
 				<form id="formCustomer" name="formCustomer" method="post" action="researchProject.jsp">  
 					Customer Name:  
-					<input id="customerName" name="customerName" type="text" class="form-control form-control-sm">  
+					<input id="username" name="username" type="text" class="form-control form-control-sm">  
 					
 					<br> 
 					Customer Address:  
-					<input id="customerAddress" name="customerAddress" type="text" class="form-control form-control-sm">  
+					<input id="useraddress" name="useraddress" type="text" class="form-control form-control-sm">  
 					
 					<br>
 					Customer Phone number:  
-					 <input id="customerPhone" name="customerPhone" type="text" class="form-control form-control-sm">  
+					 <input id="userphonenumber" name="userphonenumber" type="text" class="form-control form-control-sm">  
 					 
 					<br> 
 					Customer User name:  
-					<input id="customerUname" name="customerUname" type="text" class="form-control form-control-sm">  
+					<input id="userusername" name="userusername" type="text" class="form-control form-control-sm">  
 					 
 					<br> 
 					Customer password:  
-					<input id="customerPwd" name="customerPwd" type="password" class="form-control form-control-sm">
+					<input id="userpassword" name="userpassword" type="password" class="form-control form-control-sm">
 				
 					<br>  
 					<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">  

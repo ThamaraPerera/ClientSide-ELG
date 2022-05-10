@@ -14,7 +14,7 @@ public class Customer{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			// Provide the correct details: DBServer/DBName, username, password
-			con = DriverManager.getConnection("jdbc:mysql://localhost:8080/userdb", "root", "Thamara@123");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/userdb", "root", "Thamara@123");
 
 			// Successful connection
 			System.out.print("Successfully connected");
@@ -48,25 +48,25 @@ public class Customer{
 
 			while (rs.next()) {
 
-				String customerID = Integer.toString(rs.getInt("customerID"));
-				String customerName = rs.getString("customerName");
-				String customerAddress = rs.getString("customerAddress");
-				String customerPhone = rs.getString("customerPhone");
-				String customerUname = rs.getString("customerUname");
-				String customerPwd = rs.getString("customerPwd");
+				String userid = Integer.toString(rs.getInt("userid"));
+				String username = rs.getString("username");
+				String useraddress = rs.getString("useraddress");
+				String userphonenumber = rs.getString("userphonenumber");
+				String userusername = rs.getString("userusername");
+				String userpassword = rs.getString("userpassword");
 
 				// Add into the html table
 				output += "<tr><td><input id='hidcustomerIDSave' name='hidcustomerIDSave' type='hidden' value='"
-						+ customerID + "'>" + customerName + "</td>";
+						+ userid + "'>" + username + "</td>";
 
-				output += "<td>" + customerAddress + "</td>";
-				output += "<td>" + customerPhone + "</td>";
-				output += "<td>" + customerUname + "</td>";
-				output += "<td>" + customerPwd + "</td>";
+				output += "<td>" + useraddress + "</td>";
+				output += "<td>" + userphonenumber + "</td>";
+				output += "<td>" + userusername + "</td>";
+				output += "<td>" + userpassword + "</td>";
 
 				output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
-						+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-customerID='"
-						+ customerID + "'>" + "</td></tr>";
+						+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-userid='"
+						+ userid + "'>" + "</td></tr>";
 
 			}
 
@@ -83,7 +83,7 @@ public class Customer{
 	}
 
 	// Insert new Customer
-	public String insertCustomer(String customerName, String customerAddress, String customerPhone, String customerUname, String customerPwd) 
+	public String insertCustomer(String username, String useraddress, String userphonenumber, String userusername, String userpassword) 
 	{
 		String output = "";
 
@@ -102,11 +102,11 @@ public class Customer{
 
 			// assigning values
 			preparedStmt.setInt(1, 0);
-			preparedStmt.setString(2, customerName);
-			preparedStmt.setString(3, customerAddress);
-			preparedStmt.setString(4, customerPhone);
-			preparedStmt.setString(5, customerUname);
-			preparedStmt.setString(6, customerPwd);
+			preparedStmt.setString(2, username);
+			preparedStmt.setString(3, useraddress);
+			preparedStmt.setString(4, userphonenumber);
+			preparedStmt.setString(5, userusername);
+			preparedStmt.setString(6, userpassword);
 
 			// execute the statement
 			preparedStmt.execute();
@@ -125,7 +125,7 @@ public class Customer{
 	}
 
 	// Update Customer Profile
-	public String updateCustomer(String customerID, String customerName, String customerAddress, String customerPhone, String customerUname, String customerPwd) 
+	public String updateCustomer(String userid, String username, String useraddress, String userphonenumber, String userusername, String userpassword) 
 	{
 		String output = "";
 
@@ -142,12 +142,12 @@ public class Customer{
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
 			// binding values
-			preparedStmt.setString(1, customerName);
-			preparedStmt.setString(2, customerAddress);
-			preparedStmt.setString(3, customerPhone);
-			preparedStmt.setString(4, customerUname);
-			preparedStmt.setString(5, customerPwd);
-			preparedStmt.setInt(6, Integer.parseInt(customerID));
+			preparedStmt.setString(1, username);
+			preparedStmt.setString(2, useraddress);
+			preparedStmt.setString(3, userphonenumber);
+			preparedStmt.setString(4, userusername);
+			preparedStmt.setString(5, userpassword);
+			preparedStmt.setInt(6, Integer.parseInt(userid));
 
 			// execute the statement
 			preparedStmt.execute();
@@ -166,7 +166,7 @@ public class Customer{
 	}
 
 	// Delete Customer Profile
-	public String deleteCustomer(String customerID) {
+	public String deleteCustomer(String userid) {
 		String output = "";
 
 		try {
@@ -182,7 +182,7 @@ public class Customer{
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
 			// binding values
-			preparedStmt.setInt(1, Integer.parseInt(customerID));
+			preparedStmt.setInt(1, Integer.parseInt(userid));
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
