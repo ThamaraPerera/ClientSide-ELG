@@ -14,7 +14,7 @@ public class Customer{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			// Provide the correct details: DBServer/DBName, username, password
-			con = DriverManager.getConnection("jdbc:mysql://localhost/userdb", "root", "Thamara@123");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:8080/userdb", "root", "Thamara@123");
 
 			// Successful connection
 			System.out.print("Successfully connected");
