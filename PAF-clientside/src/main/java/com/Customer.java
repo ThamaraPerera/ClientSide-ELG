@@ -66,7 +66,7 @@ public class Customer{
 
 				output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
 						+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-userid='"
-						+ userid + "'>" + "</td></tr>";
+						+ userid + "'>" + "</td></tr>"; 
 
 			}
 

@@ -10,7 +10,23 @@
 
 <script src="components/jquery-3.6.0.min.js"></script>
 <script src="components/customers.js"></script>
-
+<style type="text/css">
+body {
+	background-image: url("images/blubs.png");
+	background-position: center;
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+.opa {
+opacity: 0.8;
+}
+.buttonStyle{
+	width: 100%;
+}
+.txtStyles{
+	font-family:Comic Sans MS;
+}
+</style>
 </head>
 <body>
 <div class="container"> 
